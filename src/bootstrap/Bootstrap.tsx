@@ -1,24 +1,25 @@
-import { FunctionComponent, ReactNode, useState } from 'react';
+import { FunctionComponent, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
+import { ClassicGridLayout } from './ClassicGridLayout';
+import { CssGridLayout } from './CssGridLayout';
+import { StackLayout } from './StackLayout';
 
 import './bootstrap.scss';
 
-type LayoutStrategy = 'stack' | 'grid' | 'css-grid';
+type Layout = 'stack' | 'grid' | 'css-grid';
 
 export const Bootstrap: FunctionComponent = () => {
-  const [layoutStrategy, setLayoutStrategy] = useState<LayoutStrategy>('stack');
+  const [layout, setLayout] = useState<Layout>('stack');
 
   return (
     <>
-      {layoutStrategy === 'stack' && (
-        <StackStrategy
+      {layout === 'stack' && (
+        <StackLayout
           col1={
             <>
-              <Nav onChange={setLayoutStrategy} />
+              <Nav onChange={setLayout} />
               <hr />
               <ButtonLayout />
             </>
@@ -26,11 +27,11 @@ export const Bootstrap: FunctionComponent = () => {
           col2={<Notes />}
         />
       )}
-      {layoutStrategy === 'grid' && (
-        <ClassicGridStrategy
+      {layout === 'grid' && (
+        <ClassicGridLayout
           col1={
             <>
-              <Nav onChange={setLayoutStrategy} />
+              <Nav onChange={setLayout} />
               <hr />
               <ButtonLayout />
             </>
@@ -38,11 +39,11 @@ export const Bootstrap: FunctionComponent = () => {
           col2={<Notes />}
         />
       )}
-      {layoutStrategy === 'css-grid' && (
-        <CssGridStrategy
+      {layout === 'css-grid' && (
+        <CssGridLayout
           col1={
             <>
-              <Nav onChange={setLayoutStrategy} />
+              <Nav onChange={setLayout} />
               <hr />
               <ButtonLayout />
             </>
@@ -53,67 +54,6 @@ export const Bootstrap: FunctionComponent = () => {
     </>
   );
 };
-
-interface LayoutProps {
-  col1: ReactNode;
-  col2: ReactNode;
-}
-
-const StackStrategy: FunctionComponent<LayoutProps> = ({ col1, col2 }) => (
-  <Stack
-    direction="horizontal"
-    gap={3}
-    className="h-100 align-items-stretch mx-3"
-  >
-    <div
-      style={{
-        flexGrow: 2
-      }}
-    >
-      <h1>Stack</h1>
-      {col1}
-    </div>
-    <div
-      style={{
-        flexGrow: 1,
-        marginBottom: intercomHeight
-      }}
-    >
-      {col2}
-    </div>
-  </Stack>
-);
-
-const ClassicGridStrategy: FunctionComponent<LayoutProps> = ({
-  col1,
-  col2
-}) => (
-  <Container fluid className="h-100">
-    <Row className="h-100">
-      <Col>
-        <h1>Classic grid</h1>
-        {col1}
-      </Col>
-      <Col md="4" className="h-100" style={{ paddingBottom: intercomHeight }}>
-        {col2}
-      </Col>
-    </Row>
-  </Container>
-);
-
-const CssGridStrategy: FunctionComponent<LayoutProps> = ({ col1, col2 }) => (
-  <div className="grid h-100 px-3">
-    <div className="g-col-8">
-      <h1>CSS Grid</h1>
-      {col1}
-    </div>
-    <div className="g-col-4" style={{ marginBottom: intercomHeight }}>
-      {col2}
-    </div>
-  </div>
-);
-
-const intercomHeight = 'var(--hack-intercom-height)';
 
 const Notes: FunctionComponent = () => (
   <div className="shadow rounded p-2 h-100 bs-notes">Content</div>
@@ -128,7 +68,7 @@ const ButtonLayout: FunctionComponent = () => (
 );
 
 const Nav: FunctionComponent<{
-  onChange: (strategy: LayoutStrategy) => void;
+  onChange: (layout: Layout) => void;
 }> = ({ onChange }) => (
   <Stack direction="horizontal" as="nav" gap={2} className="mb-2">
     <Button onClick={() => onChange('stack')}>Stack</Button>
