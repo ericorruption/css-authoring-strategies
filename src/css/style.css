@@ -29,3 +29,7 @@
 
   margin-bottom: var(--hack-intercom-height);
 }
+
+.notes:before {
+  content: '🦄 ';
+}

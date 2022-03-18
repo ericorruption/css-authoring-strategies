@@ -2,3 +2,7 @@
 $enable-cssgrid: true;
 
 @import '~bootstrap/scss/bootstrap';
+
+.bs-notes:before {
+  content: '🦄 ';
+}

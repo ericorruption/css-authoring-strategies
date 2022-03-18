@@ -116,7 +116,7 @@ const CssGridStrategy: FunctionComponent<LayoutProps> = ({ col1, col2 }) => (
 const intercomHeight = 'var(--hack-intercom-height)';
 
 const Notes: FunctionComponent = () => (
-  <div className="shadow rounded p-2 h-100">Content</div>
+  <div className="shadow rounded p-2 h-100 bs-notes">Content</div>
 );
 
 // How to space two buttons

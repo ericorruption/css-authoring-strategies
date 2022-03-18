@@ -32,6 +32,10 @@ const Notes = styled.div`
   border-radius: 4px;
 
   margin-bottom: var(--hack-intercom-height);
+
+  &:before {
+    content: '🦄 ';
+  }
 `;
 
 const StyledLayout = styled.div`

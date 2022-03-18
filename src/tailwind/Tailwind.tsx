@@ -8,11 +8,7 @@ export const Tailwind: FunctionComponent = () => (
         <Button />
       </>
     }
-    col2={
-      <div className="tw-bg-white tw-drop-shadow tw-p-4 tw-rounded tw-h-full">
-        Content
-      </div>
-    }
+    col2={<Notes />}
   />
 );
 
@@ -34,4 +30,12 @@ const Button: FunctionComponent<{ className?: string }> = ({
   >
     Tailwind button
   </button>
+);
+
+// Tried to follow the example using tw-before:content-['*'] but didnt work
+// https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-elements
+const Notes: FunctionComponent = () => (
+  <div className="tw-bg-white tw-drop-shadow tw-p-4 tw-rounded tw-h-full">
+    Content
+  </div>
 );
