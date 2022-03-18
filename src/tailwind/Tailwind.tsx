@@ -16,9 +16,14 @@ const LayoutAwareOfIntercom: FunctionComponent<{
   col1: ReactNode;
   col2: ReactNode;
 }> = ({ col1, col2 }) => (
-  <div className="tw-grid tw-grid-cols-3 tw-gap-4 tw-px-4 tw-h-full">
+  <div className="md:tw-grid tw-grid-cols-3 tw-gap-4 tw-px-4 tw-h-full">
     <div className="tw-col-span-2">{col1}</div>
-    <div style={{ marginBottom: 'var(--hack-intercom-height)' }}>{col2}</div>
+    <div
+      className="tw-mt-3 md:tw-mt-0"
+      style={{ marginBottom: 'var(--hack-intercom-height)' }}
+    >
+      {col2}
+    </div>
   </div>
 );
 

@@ -57,16 +57,25 @@ const Notes = styled.div`
   &:before {
     content: '🦄 ';
   }
+
+  @media (max-width: 47.99rem) {
+    margin-top: 2rem;
+  }
 `;
 
 const StyledLayout = styled.div`
-  height: 100%;
+  @media (max-width: 47.99rem) {
+    padding: 0 1rem;
+  }
+  @media (min-width: 48rem) {
+    height: 100%;
 
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
 
-  margin: 0 1rem;
+    margin: 0 1rem;
+  }
 `;
 
 const Layout: FunctionComponent<{ col1: ReactNode; col2: ReactNode }> = ({

@@ -13,7 +13,11 @@ export const ClassicGridLayout: FunctionComponent<LayoutProps> = ({
         <h1>Classic grid</h1>
         {col1}
       </Col>
-      <Col md="4" className="h-100" style={{ paddingBottom: intercomHeight }}>
+      <Col
+        md="4"
+        className="h-100 mt-3 mt-md-0"
+        style={{ paddingBottom: intercomHeight }}
+      >
         {col2}
       </Col>
     </Row>
