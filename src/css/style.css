@@ -11,3 +11,21 @@
 .spacer {
   margin-right: 1rem;
 }
+
+.layout {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+
+  margin: 0 1rem;
+}
+
+.notes {
+  padding: 1.5rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  margin-bottom: var(--hack-intercom-height);
+}

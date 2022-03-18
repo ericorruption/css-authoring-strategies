@@ -11,25 +11,50 @@ function App() {
 
   return (
     <>
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-        <button type="button" onClick={() => setStrategy('css')}>
-          CSS
-        </button>
-        <button type="button" onClick={() => setStrategy('bootstrap')}>
-          Bootstrap
-        </button>
-        <button type="button" onClick={() => setStrategy('tailwind')}>
-          Tailwind
-        </button>
-        <button type="button" onClick={() => setStrategy('styled-components')}>
-          Styled Components
-        </button>
-      </div>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
+      >
+        <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+          <button type="button" onClick={() => setStrategy('css')}>
+            CSS
+          </button>
+          <button type="button" onClick={() => setStrategy('bootstrap')}>
+            Bootstrap
+          </button>
+          <button type="button" onClick={() => setStrategy('tailwind')}>
+            Tailwind
+          </button>
+          <button
+            type="button"
+            onClick={() => setStrategy('styled-components')}
+          >
+            Styled Components
+          </button>
+        </div>
 
-      {strategy === 'css' && <CSS />}
-      {strategy === 'bootstrap' && <Bootstrap />}
-      {strategy === 'tailwind' && <Tailwind />}
-      {strategy === 'styled-components' && <StyledComponents />}
+        <div style={{ flexGrow: 1 }}>
+          {strategy === 'css' && <CSS />}
+          {strategy === 'bootstrap' && <Bootstrap />}
+          {strategy === 'tailwind' && <Tailwind />}
+          {strategy === 'styled-components' && <StyledComponents />}
+        </div>
+      </div>
+      {/* Fake intercom */}
+      <a
+        href="#"
+        style={{
+          position: 'fixed',
+          bottom: '1rem',
+          right: '1rem',
+          background: 'orange',
+          textDecoration: 'none',
+          color: 'white',
+          padding: '1.5rem',
+          borderRadius: '100%',
+        }}
+      >
+        Int.
+      </a>
     </>
   );
 }
