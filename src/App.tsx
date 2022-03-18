@@ -29,7 +29,8 @@ function App() {
             gap: '1rem',
             marginBottom: '1rem',
             alignItems: 'center',
-            backgroundColor: '#f5f5f5'
+            backgroundColor: '#f5f5f5',
+            padding: '1rem'
           }}
         >
           <button type="button" onClick={() => setStrategy('css')}>
