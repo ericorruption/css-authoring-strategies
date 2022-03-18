@@ -39,3 +39,8 @@ const Notes: FunctionComponent = () => (
     Content
   </div>
 );
+
+// https://tailwindcss.com/docs/theme
+// Theming with tailwind happens in the config file, not during runtime.
+// This means we would need one tailwind build for each theme
+// and figure out how to load the right one during runtime.

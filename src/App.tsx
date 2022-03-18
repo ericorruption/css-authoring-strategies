@@ -91,5 +91,4 @@ export default App;
 
 // TODO
 // Widths and heights
-// How to theme
 // Responsiveness

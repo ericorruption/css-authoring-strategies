@@ -11,6 +11,11 @@ $enable-cssgrid: true;
   animation: shake 0.5s;
 }
 
+.theme--hansemerkur .btn {
+  background-color: green;
+  border-color: green;
+}
+
 @keyframes shake {
   0% {
     transform: translateX(0);

@@ -1,21 +1,37 @@
-import type { FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent, ReactNode, useContext } from 'react';
 
-import styled from 'styled-components';
+import styled, { ThemeProvider as StyledTheme } from 'styled-components';
+import { ThemeContext, Theme } from '../Theme';
 
-export const StyledComponents: FunctionComponent = () => (
-  <Layout
-    col1={
-      <>
-        <SpacedButton>Styled components</SpacedButton>
-        <Button>Styled components</Button>
-      </>
-    }
-    col2={<Notes>Content</Notes>}
-  />
-);
+export const StyledComponents: FunctionComponent = () => {
+  const globalTheme = useContext(ThemeContext);
+
+  return (
+    <StyledTheme theme={styledThemes[globalTheme]}>
+      <Layout
+        col1={
+          <>
+            <SpacedButton>Styled components</SpacedButton>
+            <Button>Styled components</Button>
+          </>
+        }
+        col2={<Notes>Content</Notes>}
+      />
+    </StyledTheme>
+  );
+};
+
+const styledThemes: Record<Theme, unknown> = {
+  claimsforce: {
+    primary: 'rebeccapurple'
+  },
+  hansemerkur: {
+    primary: 'green'
+  }
+};
 
 const Button = styled.button`
-  background-color: rebeccapurple;
+  background-color: ${(props) => props.theme.primary};
   color: white;
   border: none;
   padding: 0.45rem 0.75rem;
