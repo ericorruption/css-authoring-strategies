@@ -20,6 +20,11 @@ const Button = styled.button`
   border: none;
   padding: 0.45rem 0.75rem;
   border-radius: 4px;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    background-color: purple;
+  }
 `;
 
 const SpacedButton = styled(Button)`

@@ -26,13 +26,13 @@ const Button: FunctionComponent<{ className?: string }> = ({
   className = ''
 }) => (
   <button
-    className={`tw-bg-lime-600 tw-text-white tw-px-3 tw-py-1.5 tw-rounded ${className}`}
+    className={`tw-bg-lime-600 tw-text-white tw-px-3 tw-py-1.5 tw-rounded tw-transition hover:tw-bg-lime-700 ${className}`}
   >
     Tailwind button
   </button>
 );
 
-// Tried to follow the example using tw-before:content-['*'] but didnt work
+// Tried to follow the example using before:content-['🦄 '] but didnt work
 // https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-elements
 const Notes: FunctionComponent = () => (
   <div className="tw-bg-white tw-drop-shadow tw-p-4 tw-rounded tw-h-full">
