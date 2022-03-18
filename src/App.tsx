@@ -41,7 +41,7 @@ function App() {
       </div>
       {/* Fake intercom */}
       <a
-        href="#"
+        href="https://www.intercom.com"
         style={{
           position: 'fixed',
           bottom: '1rem',
@@ -50,7 +50,7 @@ function App() {
           textDecoration: 'none',
           color: 'white',
           padding: '1.5rem',
-          borderRadius: '100%',
+          borderRadius: '100%'
         }}
       >
         Int.
