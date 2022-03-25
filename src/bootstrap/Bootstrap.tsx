@@ -61,10 +61,10 @@ const Notes: FunctionComponent = () => (
 
 // How to space two buttons
 const ButtonLayout: FunctionComponent = () => (
-  <>
-    <Button className="me-2">Bootstrap button</Button>
+  <Stack direction="horizontal" gap={2}>
     <Button>Bootstrap button</Button>
-  </>
+    <Button>Bootstrap button</Button>
+  </Stack>
 );
 
 const Nav: FunctionComponent<{
