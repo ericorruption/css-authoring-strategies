@@ -2,7 +2,7 @@ import type { FunctionComponent, ReactNode } from 'react';
 
 import './style.css';
 
-export const CSS: FunctionComponent = () => (
+const CSS: FunctionComponent = () => (
   <Layout
     col1={
       <>
@@ -25,6 +25,8 @@ export const CSS: FunctionComponent = () => (
     col2={<Notes />}
   />
 );
+
+export default CSS;
 
 // Approach no. 3 could be a utility class on button (e.g.: u-mr-2)
 

@@ -1,6 +1,8 @@
 import type { FunctionComponent, ReactNode } from 'react';
 
-export const Tailwind: FunctionComponent = () => (
+import './tailwind.css';
+
+const Tailwind: FunctionComponent = () => (
   <LayoutAwareOfIntercom
     col1={
       <>
@@ -11,6 +13,8 @@ export const Tailwind: FunctionComponent = () => (
     col2={<Notes />}
   />
 );
+
+export default Tailwind;
 
 const LayoutAwareOfIntercom: FunctionComponent<{
   col1: ReactNode;

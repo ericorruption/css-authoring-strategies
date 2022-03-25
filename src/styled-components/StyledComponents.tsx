@@ -3,7 +3,7 @@ import { FunctionComponent, ReactNode, useContext } from 'react';
 import styled, { ThemeProvider as StyledTheme } from 'styled-components';
 import { ThemeContext, Theme } from '../Theme';
 
-export const StyledComponents: FunctionComponent = () => {
+const StyledComponents: FunctionComponent = () => {
   const globalTheme = useContext(ThemeContext);
 
   return (
@@ -20,6 +20,8 @@ export const StyledComponents: FunctionComponent = () => {
     </StyledTheme>
   );
 };
+
+export default StyledComponents;
 
 const styledThemes: Record<Theme, unknown> = {
   claimsforce: {

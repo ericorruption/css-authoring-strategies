@@ -1,15 +1,21 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { ThemeContext, Theme } from './Theme';
-import { Bootstrap } from './bootstrap/Bootstrap';
-import { CSS } from './css/CSS';
-import { StyledComponents } from './styled-components/StyledComponents';
-import { Tailwind } from './tailwind/Tailwind';
 
-type strategy = 'css' | 'bootstrap' | 'tailwind' | 'styled-components';
+const Bootstrap = lazy(() => import('./bootstrap/Bootstrap'));
+const CSS = lazy(() => import('./css/CSS'));
+const StyledComponents = lazy(
+  () => import('./styled-components/StyledComponents')
+);
+const Tailwind = lazy(() => import('./tailwind/Tailwind'));
 
 function App() {
+  const strategy = window.location.pathname.split('/')[1];
+
+  if (strategy === '') {
+    window.location.href = '/css';
+  }
+
   const [theme, setTheme] = useState<Theme>('claimsforce');
-  const [strategy, setStrategy] = useState<strategy>('css');
 
   const toggleTheme = () =>
     setTheme(theme === 'claimsforce' ? 'hansemerkur' : 'claimsforce');
@@ -33,34 +39,29 @@ function App() {
             padding: '1rem'
           }}
         >
-          <button type="button" onClick={() => setStrategy('css')}>
-            CSS
-          </button>
-          <button type="button" onClick={() => setStrategy('bootstrap')}>
-            Bootstrap
-          </button>
-          <button type="button" onClick={() => setStrategy('tailwind')}>
-            Tailwind
-          </button>
-          <button
-            type="button"
-            onClick={() => setStrategy('styled-components')}
-          >
-            Styled Components
-          </button>
+          <a href="/css">CSS</a>
+          <a href="/bootstrap">Bootstrap</a>
+          <a href="/tailwind">Tailwind</a>
+          <a href="/styled-components">Styled Components</a>
           <div style={{ marginLeft: 'auto' }} />
-          <button onClick={toggleTheme}>
-            <strong>Toggle theme</strong>
-          </button>{' '}
+
           <p style={{ margin: 0 }}>Current theme: {theme}</p>
+          <button
+            onClick={toggleTheme}
+            style={{ border: '1px solid', padding: '0.25em' }}
+          >
+            <strong>Toggle theme</strong>
+          </button>
         </div>
 
         <ThemeContext.Provider value={theme}>
           <div style={{ flexGrow: 1 }} className={`theme--${theme}`}>
+            <Suspense fallback={<>Loading...</>}>
             {strategy === 'css' && <CSS />}
             {strategy === 'bootstrap' && <Bootstrap />}
             {strategy === 'tailwind' && <Tailwind />}
             {strategy === 'styled-components' && <StyledComponents />}
+            </Suspense>
           </div>
         </ThemeContext.Provider>
       </div>
@@ -86,9 +87,3 @@ function App() {
 }
 
 export default App;
-
-// Caveats
-// Bootstrap and tailwind apply global styles.
-
-// TODO
-// Widths and heights

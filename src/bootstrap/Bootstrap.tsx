@@ -10,7 +10,7 @@ import './bootstrap.scss';
 
 type Layout = 'stack' | 'grid' | 'css-grid';
 
-export const Bootstrap: FunctionComponent = () => {
+const Bootstrap: FunctionComponent = () => {
   const [layout, setLayout] = useState<Layout>('stack');
 
   return (
@@ -54,6 +54,8 @@ export const Bootstrap: FunctionComponent = () => {
     </>
   );
 };
+
+export default Bootstrap;
 
 const Notes: FunctionComponent = () => (
   <div className="shadow rounded p-2 h-100 bs-notes">Content</div>
