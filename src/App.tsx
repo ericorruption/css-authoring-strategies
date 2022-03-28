@@ -7,6 +7,8 @@ const StyledComponents = lazy(
   () => import('./styled-components/StyledComponents')
 );
 const Tailwind = lazy(() => import('./tailwind/Tailwind'));
+const Antd = lazy(() => import('./antd/Antd'));
+const Chakra = lazy(() => import('./chakra/Chakra'));
 
 function App() {
   const strategy = window.location.pathname.split('/')[1];
@@ -43,6 +45,8 @@ function App() {
           <a href="/bootstrap">Bootstrap</a>
           <a href="/tailwind">Tailwind</a>
           <a href="/styled-components">Styled Components</a>
+          <a href="/chakra">Chakra UI</a>
+          <a href="/antd">Antd</a>
           <div style={{ marginLeft: 'auto' }} />
 
           <p style={{ margin: 0 }}>Current theme: {theme}</p>
@@ -57,10 +61,12 @@ function App() {
         <ThemeContext.Provider value={theme}>
           <div style={{ flexGrow: 1 }} className={`theme--${theme}`}>
             <Suspense fallback={<>Loading...</>}>
-            {strategy === 'css' && <CSS />}
-            {strategy === 'bootstrap' && <Bootstrap />}
-            {strategy === 'tailwind' && <Tailwind />}
-            {strategy === 'styled-components' && <StyledComponents />}
+              {strategy === 'css' && <CSS />}
+              {strategy === 'bootstrap' && <Bootstrap />}
+              {strategy === 'tailwind' && <Tailwind />}
+              {strategy === 'styled-components' && <StyledComponents />}
+              {strategy === 'chakra' && <Chakra />}
+              {strategy === 'antd' && <Antd />}
             </Suspense>
           </div>
         </ThemeContext.Provider>
