@@ -24,10 +24,10 @@ const StyledComponents: FunctionComponent = () => {
 export default StyledComponents;
 
 const styledThemes: Record<Theme, unknown> = {
-  claimsforce: {
+  a: {
     primary: 'rebeccapurple'
   },
-  hansemerkur: {
+  b: {
     primary: 'green'
   }
 };

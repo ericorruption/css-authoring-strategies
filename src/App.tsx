@@ -17,10 +17,9 @@ function App() {
     window.location.href = '/css';
   }
 
-  const [theme, setTheme] = useState<Theme>('claimsforce');
+  const [theme, setTheme] = useState<Theme>('a');
 
-  const toggleTheme = () =>
-    setTheme(theme === 'claimsforce' ? 'hansemerkur' : 'claimsforce');
+  const toggleTheme = () => setTheme(theme === 'a' ? 'b' : 'a');
 
   return (
     <>

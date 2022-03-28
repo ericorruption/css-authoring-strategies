@@ -15,7 +15,7 @@ const Chakra: FunctionComponent = () => {
   const theme = extendTheme({
     colors: {
       primary: {
-        500: globalTheme === 'claimsforce' ? '#0070f3' : '#53c2ff'
+        500: globalTheme === 'a' ? '#0070f3' : '#53c2ff'
       }
     }
   });
