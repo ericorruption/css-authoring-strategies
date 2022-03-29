@@ -8,10 +8,11 @@ This app demonstrates how to deal with some common front-end challenges using po
 
 The challenges:
 - Theming
-- Magic numbers
+- Magic numbers - The examples demonstrate how to deal with a 3rd party component with some set height.
 - How to space components
 - Pseudo classes and elements
 - Page layouts and grids
+- Responsive design and media queries
 
 ---
 
